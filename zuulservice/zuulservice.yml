@@ -1,5 +1,4 @@
 zuul.prefix=/api
-zuul.ignored-services: '*'
 zuul.routes.organizationservice: /org/**
 zuul.routes.licensingservice: /lc/**
 signing.key: "345345fsdfsf5345"
