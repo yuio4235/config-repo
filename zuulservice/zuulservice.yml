@@ -1,4 +1,11 @@
-zuul.prefix=/api
-zuul.routes.organizationservice: /org/**
-zuul.routes.licensingservice: /lc/**
-signing.key: "345345fsdfsf5345"
+zuul:
+  prefix: /api
+  routes:
+    #licensestatic: #用户内部识别服务的关键字
+     # path: /licensestatic/** #静态路由
+      #url: http://licenseservice-static:8088 #非Eureka服务，直接调用，不涉及Eureka客户端缓存和负载均衡等
+    organizationservice: /org/**
+    licensingservice: /lc/**
+    specialrouteservice: /sr/**
+ # ignored-services: '*' #表示去掉eureka服务发现的service,设置了该属性之后，/routes就不显示eureka服务相关的路由
+  sensitive-headers: Cookie,Set-Cookie
