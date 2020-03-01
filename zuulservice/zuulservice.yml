@@ -9,3 +9,6 @@ zuul:
     specialrouteservice: /sr/**
  # ignored-services: '*' #表示去掉eureka服务发现的service,设置了该属性之后，/routes就不显示eureka服务相关的路由
   sensitive-headers: Cookie,Set-Cookie
+
+
+signing.key: "345345fsdfsf5345"
