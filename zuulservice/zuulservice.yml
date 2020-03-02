@@ -1,14 +1,15 @@
-zuul:
-  prefix: /api
-  routes:
-    #licensestatic: #用户内部识别服务的关键字
-     # path: /licensestatic/** #静态路由
-      #url: http://licenseservice-static:8088 #非Eureka服务，直接调用，不涉及Eureka客户端缓存和负载均衡等
-    organizationservice: /org/**
-    licensingservice: /lc/**
-    specialrouteservice: /sr/**
- # ignored-services: '*' #表示去掉eureka服务发现的service,设置了该属性之后，/routes就不显示eureka服务相关的路由
-  sensitive-headers: Cookie,Set-Cookie
-
-
+zuul.prefix:  /api
+zuul.routes.organizationservice: /organization/**
+zuul.routes.licensingservice: /licensing/**
+zuul.routes.authenticationservice: /auth/**
+#zuul.routes.licensestatic.path: /licensestatic/**
+#zuul.routes.licensestatic.url:  http://licenseservice-static:8081
+#zuul.routes.licensestatic.serviceId: licensestatic
+#zuul.routes.licensestatic.ribbon.listOfServers: http://licenseservice-static1:8081, http://licenseservice-static2:8082
+#ribbon.eureka.enabled: false
+zuul.sensitiveHeaders: Cookie,Set-Cookie
+zuul.debug.request: true
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 2500
+#hystrix.command.licensingservice.execution.isolation.thread.timeoutInMilliseconds: 2
+#licensingservice.ribbon.ReadTimeout: 2
 signing.key: "345345fsdfsf5345"
